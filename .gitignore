@@ -4,3 +4,5 @@
 
 /.vs/VersionsApi/v16/TestStore/0
 /VersionsApi/obj/Debug/netcoreapp3.1
+/VersionsApi/bin/Debug/netcoreapp3.1
+/.vs/VersionsApi
