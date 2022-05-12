@@ -41,7 +41,7 @@ namespace VersionsApi.Controllers
                 sb.AppendLine("Section GitVersion is not exists.");
             }
 
-            sb.AppendLine(Configuration["GitVersion:NuGetVersion"] + " ffffff1"
+            sb.AppendLine(Configuration["GitVersion_NuGetVersion"] + " ffffff1"
                 + " --- "  + GetType().Assembly.GetName().Version.ToString());
 
             return sb.ToString();
