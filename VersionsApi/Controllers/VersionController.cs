@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,19 @@ namespace VersionsApi.Controllers
     [ApiController]
     public class VersionController : ControllerBase
     {
+        public IConfiguration Configuration { get; }
+
+        public VersionController(IConfiguration configuration)
+            : base()
+        {
+            Configuration = configuration;
+        }
+
         [HttpGet]
         public string Get()
         {
-            return GetType().Assembly.GetName().Version.ToString();
+            return Configuration["GitVersion.NuGetVersion"];
+            //return GetType().Assembly.GetName().Version.ToString();
         }
     }
 }
