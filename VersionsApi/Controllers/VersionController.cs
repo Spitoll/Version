@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -24,8 +25,26 @@ namespace VersionsApi.Controllers
         [HttpGet]
         public string Get()
         {
-            return Configuration["GitVersion:NuGetVersion"] + " ffffff1";
-            //return GetType().Assembly.GetName().Version.ToString();
+            StringBuilder sb = new StringBuilder();
+
+            var section = Configuration.GetSection("GitVersion");
+            if (section != null)
+            {
+                sb.AppendLine("Section - GitVersion:");
+                foreach (var i in section.GetChildren())
+                {
+                    sb.AppendLine("key = " + i.Key + " ::: Value = " + i.Value);
+                }
+            }
+            else
+            {
+                sb.AppendLine("Section GitVersion is not exists.");
+            }
+
+            sb.AppendLine(Configuration["GitVersion:NuGetVersion"] + " ffffff1"
+                + " --- "  + GetType().Assembly.GetName().Version.ToString());
+
+            return sb.ToString();
         }
     }
 }
