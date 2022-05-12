@@ -15,7 +15,4 @@ steps:
     versionSpec: '5.*'
 
 - task: gitversion/execute@0
-  inputs:
-    useConfigFile: true
-    targetPath: "gitversion.yml"
 
