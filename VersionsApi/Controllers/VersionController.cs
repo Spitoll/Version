@@ -30,7 +30,7 @@ namespace VersionsApi.Controllers
             var section = Configuration.GetSection("GitVersion");
             if (section != null)
             {
-                sb.AppendLine("Section - GitVersion:");
+                sb.AppendLine("Section - GitVersion: " + section.Value);
                 foreach (var i in section.GetChildren())
                 {
                     sb.AppendLine("key = " + i.Key + " ::: Value = " + i.Value);
