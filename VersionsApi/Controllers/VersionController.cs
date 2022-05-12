@@ -24,7 +24,7 @@ namespace VersionsApi.Controllers
         [HttpGet]
         public string Get()
         {
-            return Configuration["$GitVersion.NuGetVersion"] + " ffffff";
+            return Configuration["GitVersion:NuGetVersion"] + " ffffff1";
             //return GetType().Assembly.GetName().Version.ToString();
         }
     }
