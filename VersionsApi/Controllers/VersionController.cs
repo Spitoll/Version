@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,16 @@ namespace VersionsApi.Controllers
 
             sb.AppendLine(Configuration["GitVersion_NuGetVersion"] + " ffffff1"
                 + " --- "  + GetType().Assembly.GetName().Version.ToString());
+
+            string text;
+            using (StreamReader sr = new StreamReader("version.json"))
+            {
+                text = sr.ReadToEnd();
+            }
+
+            sb.AppendLine("===================");
+
+            sb.AppendLine(text);
 
             return sb.ToString();
         }
