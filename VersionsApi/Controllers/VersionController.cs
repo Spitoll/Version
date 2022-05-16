@@ -26,7 +26,7 @@ namespace VersionsApi.Controllers
         public string Get()
         {
             StringBuilder sb = new StringBuilder();
-
+/*
             var data = Configuration.GetChildren();
             if (data != null)
             {
@@ -36,7 +36,7 @@ namespace VersionsApi.Controllers
                     sb.AppendLine("key = " + i.Key + " ::: Value = " + i.Value);
                 }
             }
-
+*/
             var section = Configuration.GetSection("GitVersion");
             if (section != null)
             {
