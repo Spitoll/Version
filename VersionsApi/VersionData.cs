@@ -7,5 +7,9 @@ namespace VersionsApi
 {
     public class VersionData
     {
+        public VersionData()
+        {
+
+        }
     }
 }
