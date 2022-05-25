@@ -39,7 +39,6 @@ namespace VersionsApi.Controllers
             }
 */
 
-
             var section = Configuration.GetSection("GitVersion");
             if (section != null)
             {
